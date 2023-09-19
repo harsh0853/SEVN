@@ -1,0 +1,29 @@
+.row {
+    background-color: white;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.row-up {
+    height: 55vh;
+    width: 50%;
+
+}
+
+/* .btn-add{
+    color: white;
+} */
+.row-dwn {
+    margin-top: 0px;
+    width: 50%;
+}
+
+.cont-1 {
+    background-color: rgb(39, 39, 39, 0.9);
+    height: 1000px;
+}
+
+.map-api-call {
+    height: 100vh;
+    width: 50%;
+}

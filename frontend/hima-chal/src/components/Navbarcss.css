@@ -1,0 +1,56 @@
+.offcanvas {
+    background-color: rgba(39, 39, 39, 0.6);
+}
+
+.im1 {
+    /* scale: 2.2; */
+}
+
+.navbar-toggler {
+    margin-top: 0px;
+}
+
+.navbar {
+    /* background: rgb(0, 0, 0); */
+    /* opacity: 0.3; */
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.sp {
+    color: white;
+    font-size: 4vh;
+    text-decoration: none;
+}
+
+.text1 {
+    color: white;
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'Barriecito', cursive;
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Maven Pro', sans-serif;
+    font-family: 'Monoton', cursive;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'PT Serif', serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Space Mono', monospace;
+    font-size: 4vh;
+    font-weight: bolder;
+}
+
+.text2 {
+    color: rgb(48, 130, 193);
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'Barriecito', cursive;
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Maven Pro', sans-serif;
+    font-family: 'Monoton', cursive;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'PT Serif', serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Space Mono', monospace;
+    font-size: 5vh;
+    font-weight: bolder;
+}

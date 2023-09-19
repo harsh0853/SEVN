@@ -1,0 +1,15 @@
+.cont {
+    background-color: rgba(39, 39, 39, 0.9);
+}
+.la1{
+    color:rgb(0, 0, 0);
+    font-family: sans-serif;
+    font-weight: 3vh;
+    font-weight: bolder;
+}
+.form-control{
+    background-color: rgb(100, 93, 93);
+}
+.form-group{
+    padding:20px;
+}

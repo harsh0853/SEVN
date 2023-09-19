@@ -1,12 +1,13 @@
 import React from 'react'
-import './Signup.css'
-import { Link } from 'react-router-dom'
-export default function Signup() {
+import './Signupdrivercss.css'
+export default function Signupdriver() {
     return (
         <>
             <div className="container-fluid c1">
                 <br></br><br></br>
                 <div className="container c2">
+                    <br></br>
+                    <br></br>
                     <div className="row ro1">
                         <div className="col-sm-3">
                         </div>
@@ -17,7 +18,7 @@ export default function Signup() {
                                     <br></br>
                                     <br></br>
                                     <div className="row">
-                                        <label htmlFor="exampleInputEmail1">Name</label>
+                                        <label htmlFor="exampleInputEmail1">Name*</label>
                                         <br></br>
                                         <div className="col-sm-6">
                                             <div className="form-group">
@@ -31,29 +32,44 @@ export default function Signup() {
                                         </div>
                                     </div><br></br>
                                     <div className="form-group">
-                                        <label htmlFor="exampleInputEmail1">Email address</label>
+                                        <label htmlFor="exampleInputEmail1">Email address*</label>
                                         <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                                     </div><br></br>
                                     <div className="form-group">
-                                        <label htmlFor="exampleInputPassword1">Password</label>
+                                        <label htmlFor="exampleInputPassword1">Password*</label>
                                         <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
                                     </div><br></br>
                                     <div className="form-group">
-                                        <label htmlFor="exampleInputEmail1">Contact</label>
+                                        <label htmlFor="exampleInputEmail1">Contact*</label>
                                         <input type="number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter contact number" />
                                     </div><br></br>
-                                    <div className="form-group">
-                                        <label htmlFor="exampleInputEmail1">Emergency Contact</label>
-                                        <input type="number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Contact 1" />
-                                    </div><br></br>
-                                    <div className="form-group">
-                                        <input type="number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Contact 2" />
-                                    </div><br></br>
-                                    <div className="form-group">
-                                        <input type="number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Contact 3" />
+                                    <div className="row">
+                                        <label htmlFor="exampleInputEmail1">Vehicle Details*</label>
+                                        <div className="col-sm-6">
+                                            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Regd No." />
+                                        </div>
+                                        <div className="col-sm-6">
+                                            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Chassis No." />
+                                        </div>
                                     </div><br></br>
                                     <div className="row">
-                                        <Link to="/Signupdriver"> <button type="submit" className="btn btn-primary">Submit</button></Link>
+                                        <div className="col-sm-6">
+                                            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Model" />
+                                        </div>
+                                        <div className="col-sm-6">
+                                            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Insurance Company" />
+                                        </div>
+                                    </div><br></br>
+                                    <div className="row">
+                                        <div className="col-sm-6">
+                                            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="DL No." />
+                                        </div>
+                                        <div className="col-sm-6">
+                                            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="RC No." />
+                                        </div>
+                                    </div><br></br>
+                                    <div className="row">
+                                        <button type="submit" className="btn btn-primary">Submit</button>
                                     </div>
                                     <br></br>
                                 </form>
