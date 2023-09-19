@@ -1,15 +1,29 @@
 .cont {
     background-color: rgba(39, 39, 39, 0.9);
 }
-.la1{
-    color:rgb(0, 0, 0);
+
+label {
     font-family: sans-serif;
     font-weight: 3vh;
     font-weight: bolder;
 }
-.form-control{
-    background-color: rgb(100, 93, 93);
+
+.form-control {
+    background-color: whitesmoke;
 }
-.form-group{
-    padding:20px;
+
+.form-group {
+    padding: 20px;
+}
+
+.op {
+    background-color:whitesmoke;
+}
+.ru{
+    width:100%;
+    height:100%;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    min-height:15vh;
+    margin:5%;
 }
