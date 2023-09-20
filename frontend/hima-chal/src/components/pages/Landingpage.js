@@ -1,6 +1,15 @@
 import React from 'react'
 import { Carousel } from 'react-bootstrap'
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'
+import Typewriter from "typewriter-effect";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faFacebook,
+    faTwitter,
+    faGithub,
+    faInstagram
+} from "@fortawesome/free-brands-svg-icons";
 import "./Landingpagecss.css"
 const flipCardWrapAll = document.querySelector("#flip-card-wrap-all")
 const cardsWrapper = document.querySelectorAll(".flip-card-3D-wrapper")
@@ -12,28 +21,37 @@ for (let i = 0; i < cardsWrapper.length; i++) {
     frontButtons = cardsWrapper[i].querySelector(".flip-card-btn-turn-to-back")
     frontButtons.style.visibility = "visible"
     frontButtons.onclick = function () {
-        cards[i].classList.toggle('do-flip')
+        cards[i].classNameList.toggle('do-flip')
     }
 
     backButtons = cardsWrapper[i].querySelector(".flip-card-btn-turn-to-front")
     backButtons.style.visibility = "visible"
     backButtons.onclick = function () {
-        cards[i].classList.toggle('do-flip')
+        cards[i].classNameList.toggle('do-flip')
     }
 }
 export default function Landingpage() {
 
     return (
         <>
-            <Carousel fade controls={false} indicators={false} interval={2000} className="ca1 hero">
+            <Carousel fade controls={false} indicators={false} interval={2000} className="ca1">
                 <Carousel.Item>
                     <Carousel.Caption>
-                        <motion.h3 className="text" animate={{ opacity: 1, scale: 1.5 }}
-                            transition={{ duration: 2.4 }}>Your Journey, Our Track</motion.h3>
-                    </Carousel.Caption>
-                    <Carousel.Caption>
-                        <motion.p className="hero-text" animate={{ opacity: 1, scale: 1.3 }}
-                            transition={{ duration: 1.7 }}>Revolutionize Himachal's transit with real time tracking, eco-info, safety reporting, and user feedback, bridging users and drivers for transparent travel.</motion.p>
+                        <motion.h3 className="text" animate={{ opacity: 1, scale: 1.3 }}
+                            transition={{ duration: 2 }}>Your Journey, Our Track</motion.h3>
+                        <br></br>
+                        <center>
+                            <span className="Tag1">
+                                <Typewriter
+                                    onInit={(typewriter) => {
+                                        typewriter
+                                            .typeString("“Navigate Himachal's Beauty with Confidence....”")
+                                            .pauseFor(1)
+                                            .start();
+                                    }}
+                                />
+                            </span>
+                        </center>
                     </Carousel.Caption>
                     <img
                         className="d-block w-100 img1"
@@ -49,12 +67,21 @@ export default function Landingpage() {
                     />
 
                     <Carousel.Caption>
-                        <motion.h3 className="text" animate={{ opacity: 1, scale: 1.5 }}
-                            transition={{ duration: 2.4 }}>Your Journey, Our Track</motion.h3>
-                    </Carousel.Caption>
-                    <Carousel.Caption>
-                        <motion.p className="hero-text" animate={{ opacity: 1, scale: 1.3 }}
-                            transition={{ duration: 1.7 }}>Revolutionize Himachal's transit with real time tracking, eco-info, safety reporting, and user feedback, bridging users and drivers for transparent travel.</motion.p>
+                        <motion.h3 className="text" animate={{ opacity: 1, scale: 1.3 }}
+                            transition={{ duration: 2 }}>Your Journey, Our Track</motion.h3>
+                        <br></br>
+                        <center>
+                            <span className="Tag1">
+                                <Typewriter
+                                    onInit={(typewriter) => {
+                                        typewriter
+                                            .typeString("“Navigate Himachal's Beauty with Confidence....”")
+                                            .pauseFor(1)
+                                            .start();
+                                    }}
+                                />
+                            </span>
+                        </center>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -65,50 +92,68 @@ export default function Landingpage() {
                     />
 
                     <Carousel.Caption>
-                        <motion.h3 className="text" animate={{ opacity: 1, scale: 1.5 }}
-                            transition={{ duration: 2.4 }}>Your Journey, Our Track</motion.h3>
-                    </Carousel.Caption>
+                        <motion.h3 className="text" animate={{ opacity: 1, scale: 1.3 }}
+                            transition={{ duration: 2 }}>Your Journey, Our Track</motion.h3>
+                        <br></br>
+                        <center>
+                            <span className="Tag1">
+                                <Typewriter
 
-                    <Carousel.Caption>
-                        <motion.p className="hero-text" animate={{ opacity: 1, scale: 1.3 }}
-                            transition={{ duration: 1.7 }}>Revolutionize Himachal's transit with real time tracking, eco-info, safety reporting, and user feedback, bridging users and drivers for transparent travel.</motion.p>
+                                    onInit={(typewriter) => {
+                                        typewriter
+                                            .typeString("“Navigate Himachal's Beauty with Confidence....”")
+                                            .pauseFor(1)
+                                            .start();
+                                    }}
+                                />
+                            </span>
+                        </center>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
             <div className="container-fluid con2">
                 <br></br><br></br>
-                <motion.div className='container' initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 6 }}>
-                    {/* <div className="row">
-                        <p className=" ct">Revolutionize Himachal's transit with real time tracking, eco-info, safety reporting, and user feedback, bridging users and drivers for transparent travel.</p>
-                    </div> */}
+                <div className='container'>
+                    <motion.div className="row rd1" whileHover={{ scale: '1.06' }}>
+                        <p className=" ct">Revolutionize Himachal's transit with real time tracking, eco-info, safety reporting, and user feedback, bridging users and drivers for transparent travel.  Our innovative web platform in Himachal Pradesh unites vehicle authorities and users, providing real-time tracking, safety reporting, and eco-conscious travel details, elevating the region's transportation experience to new heights</p>
+                    </motion.div>
                     <br></br>
-                    <div className="row">
-                        <div className="col-sm-6">
-                            <button type="button" className="btn btn-outline-success" style={{ width: '100%' }}>Login as User</button>
+                    <div className="row rd2">
+                        <div className="row">
+                            <div className="col-sm-4">
+                                <p className="ct">Want to be a part of our journey?</p>
+                            </div>
+                            <div className="col-sm-8">
+
+                            </div>
                         </div>
-                        <div className="col-sm-6">
-                            <button type="button" className="btn btn-outline-success" style={{ width: '100%' }}>Login as Driver</button>
+                        <div className="row">
+                            <div className="col-sm-3">
+
+                            </div>
+                            <div className="col-sm-2">
+                                <Link to="/Login1"><button type="button" className="btn btn-outline-success lo1" style={{ width: '100%' }}>Login</button></Link>
+                            </div>
+                            <div className="col-sm-7">
+
+                            </div>
                         </div>
                     </div>
 
-                    <br></br>
+                    <br></br><br></br>
                     <div className='row'>
                         <motion.div className="flip-card-3D-wrapper col-md-4 car1" whileHover={{ scale: 1.08 }}>
                             <div className="flip-card">
                                 <div className="flip-card-front">
-                                    <center> <div className='card-img'><img src="/locationlogo.png" /></div></center><br></br><br></br>
+                                    <center> <div className='card-img'><img src="/routeimgfinal.png" /></div></center><br></br><br></br>
                                     <div className='card-body'>
                                         <h3 className="text-center" style={{ color: 'white' }}>Real-Time Location</h3> <h3 className="text-center" style={{ color: 'rgb(214, 77, 139)' }}>Tracking</h3>
                                         <p className="cb">A quick description of the front item</p>
-                                        <button className="flip-card-btn-turn-to-back" style={{ background: 'rgb(39,39,39,0.9)' }}>More info</button>
                                     </div>
                                 </div>
                                 <div className="flip-card-back">
                                     <div className='card-body'>
                                         <p className="p1 cb">Users can effortlessly track the real-time location of buses, making trip planning a breeze and minimizing unnecessary waiting time.</p>
-                                        <button className="flip-card-btn-turn-to-front">flip</button>
                                     </div>
                                 </div>
                             </div>
@@ -116,18 +161,16 @@ export default function Landingpage() {
                         <motion.div className="flip-card-3D-wrapper col-md-4" whileHover={{ scale: 1.08 }}>
                             <div className="flip-card">
                                 <div className="flip-card-front">
-                                    <center> <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZ6Aw2T_WyQ1xHCLAxX1oyt7XaZljv2wr0b2M6SETrUpDEcsh0kS_19gq0xAAMS9CPaUN3xiEyqx4Y4Y6miD8WCNOKukcp3gX1ho1U32U7JkRPpCGy55EqvVCLjlmnTtkVN1bBaoGxPZ4ewzTbWVk22YGE5lp3yqWs1m8oHLZD0uGHrcJFIg_Df-JIfA/s1600/KatyCaterpillar.jpg" /></center>
+                                    <center> <img src="/transpic.png" /></center>
                                     <br></br><br></br>
                                     <div className='card-body'>
                                         <h3 className="text-center">Contribution to</h3><h3 className="text-center" style={{ color: 'rgb(214, 77, 139)' }}>Transparency</h3>
                                         <p className="cb">A quick description of the front item</p>
-                                        <button className="flip-card-btn-turn-to-back" style={{ background: 'rgb(39,39,39,0.9)' }}>More info</button>
                                     </div>
                                 </div>
                                 <div className="flip-card-back">
                                     <div className='card-body'>
                                         <p className="p1 cb">By offering vital data and real-time updates, drivers actively contribute to creating a transparent and accountable public transportation system.</p>
-                                        <button className="flip-card-btn-turn-to-front">flip</button>
                                     </div>
                                 </div>
                             </div>
@@ -135,25 +178,142 @@ export default function Landingpage() {
                         <motion.div className="flip-card-3D-wrapper col-md-4" whileHover={{ scale: 1.08 }}>
                             <div className="flip-card">
                                 <div className="flip-card-front">
-                                    <center> <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZ6Aw2T_WyQ1xHCLAxX1oyt7XaZljv2wr0b2M6SETrUpDEcsh0kS_19gq0xAAMS9CPaUN3xiEyqx4Y4Y6miD8WCNOKukcp3gX1ho1U32U7JkRPpCGy55EqvVCLjlmnTtkVN1bBaoGxPZ4ewzTbWVk22YGE5lp3yqWs1m8oHLZD0uGHrcJFIg_Df-JIfA/s1600/KatyCaterpillar.jpg" /></center>
+                                    <center> <img src="profileicon.png" /></center>
                                     <br></br><br></br>
                                     <div className='card-body'>
                                         <h3 className="text-center">Comprehensive</h3><h3 className="text-center" style={{ color: 'rgb(214, 77, 139)' }}>Profile</h3>
                                         <p className="cb">A quick description of the front item</p>
-                                        <button className="flip-card-btn-turn-to-back" style={{ background: 'rgb(39,39,39,0.9)' }}>More info</button>
                                     </div>
                                 </div>
                                 <div className="flip-card-back">
                                     <div className='card-body'>
                                         <p className="p1 cb">Our app empowers drivers to create detailed profiles, showcasing essential information such as vehicle type, emissions compliance, and contact details. This not only fosters trust but also promotes transparency within the transportation network.</p>
-                                        <button className="flip-card-btn-turn-to-front">flip</button>
                                     </div>
                                 </div>
                             </div>
                         </motion.div>
                     </div>
-                </motion.div>
-                <br></br>
+                </div>
+                <br></br><br></br><br></br>
+            </div>
+            <div className="container-fluid" style={{ background: 'black' }}>
+                <hr className="hr-or" />
+                <hr className="hr-or" />
+                <hr className="hr-or" />
+                <footer className="nb-footer">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-sm-12">
+                                <div className="about">
+                                    <img src="images/logo.png" className="img-responsive center-block" alt="" />
+
+                                    <div className="row">
+                                        <div className="social-media">
+                                            <center>
+                                                <div className="row">
+                                                    <div className="col-sm-3">
+                                                        <div class="social-container">
+                                                            <a href="https://www.youtube.com/c/jamesqquick"
+                                                                className="youtube social">
+                                                                <FontAwesomeIcon icon={faInstagram} size="2x" />
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-3">
+                                                        <div class="social-container">
+                                                            <a href="https://www.youtube.com/c/jamesqquick"
+                                                                className="youtube social">
+                                                                <FontAwesomeIcon icon={faFacebook} size="2x" />
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-3">
+                                                        <div class="social-container">
+                                                            <a href="https://www.youtube.com/c/jamesqquick"
+                                                                className="youtube social">
+                                                                <FontAwesomeIcon icon={faTwitter} size="2x" />
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-3">
+                                                        <div class="social-container">
+                                                            <a href="https://github.com/harsh0853/SEVN.git"
+                                                                className="gitHub social">
+                                                                <FontAwesomeIcon icon={faGithub} size="2x" />
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br></br><br></br>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-3 col-sm-6">
+                                <div className="footer-info-single">
+                                    <h2 className="title">Help Center</h2>
+                                    <ul className="list-unstyled">
+                                        <li><i className="fa fa-angle-double-right"></i> How to Use</li>
+                                        <li><i className="fa fa-angle-double-right"></i> FAQ's</li>
+                                        <li><i className="fa fa-angle-double-right"></i>APi info</li>
+                                        <li><i className="fa fa-angle-double-right"></i>Customer Service</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div className="col-md-3 col-sm-6">
+                                <div className="footer-info-single">
+                                    <h2 className="title">Developers</h2>
+                                    <ul className="list-unstyled">
+                                        <li><i className="fa fa-angle-double-right"></i>LPPR</li>
+                                        <li><i className="fa fa-angle-double-right"></i>Somanath</li>
+                                        <li><i className="fa fa-angle-double-right"></i>Abhisek</li>
+                                        <li><i className="fa fa-angle-double-right"></i>Bishmay</li>
+                                        <li><i className="fa fa-angle-double-right"></i>Harsh</li>
+                                        <li><i className="fa fa-angle-double-right"></i>Priyanka</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div className="col-md-3 col-sm-6">
+                                <div className="footer-info-single">
+                                    <h2 className="title">Security & privacy</h2>
+                                    <ul className="list-unstyled">
+                                        <li><i className="fa fa-angle-double-right"></i> Terms Of Use</li>
+                                        <li><i className="fa fa-angle-double-right"></i> Privacy Policy</li>
+                                        <li><i className="fa fa-angle-double-right"></i> Return / Refund Policy</li>
+                                        <li><i className="fa fa-angle-double-right"></i> Store Locations</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div className="col-md-3 col-sm-6">
+                                <div className="footer-info-single">
+                                    <h2 className="title">Payment</h2>
+                                    <p>Totally Free of Cost..</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <section className="copyright">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-sm-4">
+
+                                </div>
+                                <div className="col-sm-4">
+                                    <p>      Copyright © 2023. SEVN ♥️. All rights reserved</p>
+                                </div>
+                                <div className="col-sm-4">
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </footer>
             </div>
             {/* font-family: 'Roboto Mono', monospace; */}
         </>

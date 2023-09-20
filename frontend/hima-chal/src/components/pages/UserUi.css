@@ -1,5 +1,12 @@
-.cont {
-    background-color: rgba(39, 39, 39, 0.9);
+.contt1 {
+    margin-top: -7%;
+    background: #000000;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #434343, #000000);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #434343, #000000);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin-top: -7%;
 }
 
 label {
@@ -8,22 +15,35 @@ label {
     font-weight: bolder;
 }
 
-.form-control {
-    background-color: whitesmoke;
-}
 
 .form-group {
     padding: 20px;
 }
 
 .op {
-    background-color:whitesmoke;
+    background-color: rgba(83, 80, 80, 0.5);
+    border: 2px solid rgba(52, 51, 51, 0.5);
+    color: rgb(187, 186, 186);
+    font-weight: bold;
+    border-radius: 15px;
 }
-.ru{
-    width:100%;
-    height:100%;
-    background-color: whitesmoke;
-    border-radius: 20px;
-    min-height:15vh;
-    margin:5%;
+
+.ru {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(83, 80, 80, 0.5);
+    border: 2px solid rgba(52, 51, 51, 0.5);
+    color: rgb(187, 186, 186);
+    font-weight: bold;
+    border-radius: 15px;
+     min-height: 15vh;
+    margin: 5%;
+}
+
+.inpp {
+    background-color: rgba(83, 80, 80, 0.5);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    color: rgb(187, 186, 186);
+    font-weight: bold;
+    border-radius: 15px;
 }

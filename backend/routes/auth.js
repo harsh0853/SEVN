@@ -14,30 +14,30 @@ const JWT_SECRET = process.env.JWT_SECRET;
 router.post(
   "/createuser",
   [
-    body("username", "Enter a valid username").isLength({ min: 3 }),
     body("name", "Enter a valid name").isLength({ min: 3 }),
     body("email", "Enter a valid email").isEmail(),
     body("password", "Password must be atleast 5 characters").isLength({
       min: 5,
     }),
     body("contact", "Enter a valid phone number").isLength({ min: 10 }),
-    body("emergencyContact", "Enter a valid phone number").isLength({
-      min: 10,
+    body("emergencyContact", "Enter a valid phone number okkk").isLength({
+      min: 0,
     }),
   ],
   async (req, res) => {
     // If there are errors, return Bad request and the errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: errors.array(), success: false });
     }
     try {
       // Check whether the user with this email exists already
       let user = await User.findOne({ email: req.body.email });
       if (user) {
-        return res
-          .status(400)
-          .json({ error: "Sorry a user with this email already exists" });
+        return res.status(400).json({
+          error: "Sorry a user with this email already exists",
+          success: false,
+        });
       }
       const salt = await bcrypt.genSalt(10);
       const secPass = await bcrypt.hash(req.body.password, salt);
@@ -79,7 +79,7 @@ router.post(
     // If there are errors, return Bad request and the errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: errors.array(), success: false });
     }
 
     const { email, password } = req.body;
@@ -87,9 +87,10 @@ router.post(
       let user = await User.findOne({ email });
       if (!user) {
         success = false;
-        return res
-          .status(400)
-          .json({ error: "Please try to login with correct credentials" });
+        return res.status(400).json({
+          error: "Please try to login with correct credentials",
+          success: false,
+        });
       }
 
       const passwordCompare = await bcrypt.compare(password, user.password);
@@ -133,7 +134,6 @@ router.post("/getuser", fetchuser, async (req, res) => {
 router.post(
   "/createdriver",
   [
-    body("username", "Enter a valid username").isLength({ min: 3 }),
     body("name", "Enter a valid name").isLength({ min: 3 }),
     body("email", "Enter a valid email").isEmail(),
     body("password", "Password must be atleast 5 characters").isLength({
@@ -145,10 +145,6 @@ router.post(
       min: 17,
     }),
     body("vehicalmodel", "Enter a valid vehical model ").isLength({ min: 3 }),
-    body(
-      "vehicalinsurancecompany",
-      "Enter a valid vehical insurance company"
-    ).isLength({ min: 3 }),
     body("vehicaldlno", "Enter a valid vehical DL number").isLength({ min: 5 }),
     body("vehicalrcno", "Enter a valid vehical RC number").isLength({ min: 5 }),
   ],
@@ -156,15 +152,16 @@ router.post(
     // If there are errors, return Bad request and the errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: errors.array(), success: false });
     }
     try {
       // Check whether the user with this email exists already
       let user = await Drivers.findOne({ email: req.body.email });
       if (user) {
-        return res
-          .status(400)
-          .json({ error: "Sorry a user with this email already exists" });
+        return res.status(400).json({
+          error: "Sorry a user with this email already exists",
+          success: false,
+        });
       }
       const salt = await bcrypt.genSalt(10);
       const secPass = await bcrypt.hash(req.body.password, salt);
@@ -174,12 +171,12 @@ router.post(
         name: req.body.name,
         password: secPass,
         email: req.body.email,
-        username: req.body.username,
+
         contact: req.body.contact,
         vehicalreq: req.body.vehicalreq,
         vehicalchassis: req.body.vehicalchassis,
         vehicalmodel: req.body.vehicalmodel,
-        vehicalinsurancecompany: req.body.vehicalinsurancecompany,
+
         vehicaldlno: req.body.vehicaldlno,
         vehicalrcno: req.body.vehicalrcno,
       });
@@ -211,7 +208,7 @@ router.post(
     // If there are errors, return Bad request and the errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: errors.array(), success: false });
     }
 
     const { email, password } = req.body;
@@ -232,7 +229,7 @@ router.post(
           error: "Please try to login with correct credentials",
         });
       }
-
+      const number = user.vehicalreq;
       const data = {
         user: {
           id: user.id,
@@ -240,7 +237,7 @@ router.post(
       };
       const authtoken = jwt.sign(data, JWT_SECRET);
       success = true;
-      res.json({ success, authtoken });
+      res.json({ success, authtoken, number });
     } catch (error) {
       console.error(error.message);
       res.status(500).send("Internal Server Error");

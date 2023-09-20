@@ -1,37 +1,32 @@
 import logo from './logo.svg';
-// import './App.css';
+import './App.css';
 import React from 'react'
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Landingpage from './components/pages/Landingpage';
 import Navbar from './components/Navbar'
-import Loginpage from './components/pages/Loginpage';
-// import Signupdriver from './components/pages/Signupdriver';
-// import Signupinitial from './components/pages/Signupinitial';
-// import Signup from './components/pages/Signup';
-// import UserUi from './components/pages/UserUi';
-// import Userrideui from './components/pages/Userrideui';
-// import Driverrideui from './components/pages/Driverrideui';
-// import Driverui from './components/pages/Driverui';
-
+import Userrideui from './components/pages/Userrideui';
+import Driveruifinal from './components/pages/Driveruifinal';
+import Login1 from "./components/pages/Login1";
+import Useruifinal from './components/pages/Useruifinal';
+import Driverridefinal from './components/pages/Driverridefinal';
+import Userridefinal from './components/pages/Userridefinal';
 function App() {
   return (
     <>
       <Router>
         <Navbar />
-        <Landingpage />
-        <Loginpage />
-        {/* <Routes>
+        <Routes>
           <Route path="/Landingpage" element={<Landingpage />}></Route>
-          <Route path="/Signupinitial" element={<Signupinitial />}></Route>
-          <Route path="/Signup" element={<Signup />}></Route>
-          <Route path="/Signupdriver" element={<Signupdriver />}></Route>
-          <Route path="/Userui" element={<UserUi />}></Route>
+          <Route path="/Useruifinal" element={<Useruifinal />}></Route>
           <Route path="/Userrideui" element={<Userrideui />}></Route>
-          <Route path="/Driverrideui" element={<Driverrideui/>}></Route>
-          <Route path="/Driverui" element={<Driverui/>}></Route>
-        </Routes> */}
+          <Route path="/Userridefinal" element={<Userridefinal />}></Route>
+          <Route path="/Driverridefinal" element={<Driverridefinal />}></Route>
+          <Route path="/Driveruifinal" element={<Driveruifinal />}></Route>
+          <Route path="/Login1" element={<Login1 />}></Route>
+        </Routes>
       </Router>
+     
     </>
   );
 }

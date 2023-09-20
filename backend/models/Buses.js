@@ -4,15 +4,13 @@ const { Schema } = mongoose;
 const BusSchema = new Schema({
   busnumber: {
     type: String,
-    required: true,
   },
   start: {
     type: String,
-    required: true,
   },
   end: {
     type: String,
-    required: true,
+
     unique: true,
   },
   stop: {
@@ -22,6 +20,20 @@ const BusSchema = new Schema({
     latitude: Number,
     longitude: Number,
   },
+  active: {
+    type: Boolean,
+  },
+  latlong: {
+    type: Array,
+  },
+  count: {
+    type: Number,
+    default: 0,
+  },
+  m: {
+    type: String,
+  },
 });
+
 const Bus = mongoose.model("bus", BusSchema);
 module.exports = Bus;
