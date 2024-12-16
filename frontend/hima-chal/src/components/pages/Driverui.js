@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Driveruicss.css";
 
 export default function Driverui() {
@@ -7,6 +7,7 @@ export default function Driverui() {
   const [destination, setDestination] = useState("");
   const [stops, setStops] = useState("");
   const [stopList, setStopList] = useState([]);
+  const [latLongs, setLatLongs] = useState([]);
   const [credentials, setCredentials] = useState({
     busnumber: "",
     start: "",
@@ -59,6 +60,7 @@ export default function Driverui() {
                 latitude: coords.latitude,
                 longitude: coords.longitude,
               },
+              latlong: latLongs,
             }),
           }
         );
@@ -68,7 +70,7 @@ export default function Driverui() {
 
         // Handle errors if needed
 
-        const interv = setInterval(updateGeolocation, 30000000000000);
+        const interv = setInterval(updateGeolocation, 30000);
         setIntervalId(interv);
 
         // Update routeInfo after submit
@@ -102,6 +104,7 @@ export default function Driverui() {
   useEffect(() => {
     initialGeolocation();
   }, []);
+
   const handleAddStop = () => {
     if (stops.trim() !== "") {
       setStopList([...stopList, stops]);
@@ -111,7 +114,7 @@ export default function Driverui() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(credentials.geolocation);
+
     const token = localStorage.getItem("token");
     if (token) {
       const { busnumber } = credentials;
@@ -132,15 +135,13 @@ export default function Driverui() {
                 latitude: credentials.geolocation.latitude,
                 longitude: credentials.geolocation.longitude,
               },
+              latlong: latLongs,
             }),
           }
         );
 
         const json = await response.json();
         console.log(json);
-
-        const interv = setInterval(updateGeolocation, 3000);
-        setIntervalId(interv);
 
         // Update routeInfo after submit
         setRouteInfo({
@@ -152,7 +153,7 @@ export default function Driverui() {
         console.error("Error logging in:", error);
       }
     } else {
-      navigate("/driversignup");
+      // navigate("/driversignup");
     }
 
     if (stops.trim() !== "") {
@@ -170,13 +171,79 @@ export default function Driverui() {
     setStops("");
   };
 
+  let map;
+
+  const handleAutocomplete = (inputId) => {
+    const input = document.getElementById(inputId);
+    const autocomplete = new window.google.maps.places.Autocomplete(input);
+    autocomplete.addListener("place_changed", () => {
+      const place = autocomplete.getPlace();
+      if (place && place.geometry) {
+        if (inputId === "start") {
+          setStart(place.name);
+        } else if (inputId === "destination") {
+          setDestination(place.name);
+        } else if (inputId === "stops") {
+          setStops(place.name);
+        }
+        console.log("Selected Place Details:", place);
+        const latitude = place.geometry.location.lat();
+        const longitude = place.geometry.location.lng();
+        console.log("Latitude:", latitude, "Longitude:", longitude);
+        setLatLongs((prevLatLongs) => [
+          ...prevLatLongs,
+          { latitude, longitude },
+        ]);
+
+        if (map) {
+          map.setCenter(place.geometry.location);
+          map.setZoom(15); // You can adjust the zoom level as needed
+          new google.maps.Marker({
+            position: place.geometry.location,
+            map: map,
+          });
+        }
+      }
+    });
+    input.addEventListener("input", (e) => {
+      const value = e.target.value;
+      if (inputId === "start") {
+        setStart(value);
+      } else if (inputId === "destination") {
+        setDestination(value);
+      } else if (inputId === "stops") {
+        setStops(value);
+      }
+    });
+  };
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBwswtGSMZBRrNaFtl8nfzy2W85oXGT1go&libraries=places`;
+    script.async = true;
+    script.onload = () => {
+      handleAutocomplete("start");
+      handleAutocomplete("destination");
+      handleAutocomplete("stops");
+      // Initialize the map
+      /* global google */
+      map = new window.google.maps.Map(document.querySelector(".mapsection"), {
+        center: {
+          lat: credentials.geolocation.latitude,
+          lng: credentials.geolocation.longitude,
+        }, // Initial center coordinates
+        zoom: 10, // Initial zoom level
+      });
+    };
+    document.body.appendChild(script);
+  }, []);
   return (
     <div>
       <div className="container-fluid cont-1">
         <div className="container">
           <div className="container-fluid main-cont">
-            <br></br>
-            <br></br>
+            <br />
+            <br />
             <div className="row row-up">
               <div className="col-5 journey">
                 <div>
@@ -192,7 +259,7 @@ export default function Driverui() {
                         id="start"
                         aria-label="startpt"
                         value={start}
-                        onChange={(e) => setStart(e.target.value)}
+                        // onChange={(e) => setStart(e.target.value)}
                       />
                     </div>
                     <div className="inp">
@@ -206,7 +273,7 @@ export default function Driverui() {
                         id="destination"
                         aria-label="endpt"
                         value={destination}
-                        onChange={(e) => setDestination(e.target.value)}
+                        // onChange={(e) => setDestination(e.target.value)}
                       />
                     </div>
                     <div className="inp">
@@ -221,7 +288,7 @@ export default function Driverui() {
                           id="stops"
                           aria-label="stoppt"
                           value={stops}
-                          onChange={(e) => setStops(e.target.value)}
+                          // onChange={(e) => setStops(e.target.value)}
                         />
                         <button
                           type="button"
@@ -239,7 +306,15 @@ export default function Driverui() {
                   </form>
                 </div>
               </div>
-              <div className="col-7 mapsection">{/* <Mapspace /> */}</div>
+              <div className="col-7 mapsection">
+                {/* Render your map here */}
+                <div className="col-7 mapsection">
+                  <div
+                    id="map"
+                    style={{ width: "100%", height: "400px" }}
+                  ></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -265,6 +340,7 @@ export default function Driverui() {
             </div>
 
             <div className="col-sm-4"></div>
+
             <button className="btn btn-success" type="submit">
               Start Journey
             </button>

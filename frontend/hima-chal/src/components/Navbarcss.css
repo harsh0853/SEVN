@@ -10,16 +10,16 @@
     margin-top: 0px;
 }
 
-.navbar {
-    /* background: rgb(0, 0, 0); */
-    /* opacity: 0.3; */
+.nav1 {
     background-size: 100%;
     background-repeat: no-repeat;
+    z-index: 1;
+    height: 0vh;
 }
 
 .sp {
-    color: white;
-    font-size: 4vh;
+    color: rgb(203, 199, 199);
+    font-size:125%;
     text-decoration: none;
 }
 
@@ -53,4 +53,21 @@
     font-family: 'Space Mono', monospace;
     font-size: 5vh;
     font-weight: bolder;
+}
+.white-stripes {
+    background-image: linear-gradient(to bottom, white 50%, transparent 50%);
+    background-size: 100% 4px; /* You can adjust the thickness of the stripes as needed */
+}
+.i1{
+    height: 8px;
+    margin-top: -16px;
+}
+.rc1{
+    background-color: rgba(39, 39, 39, 0.6);
+    margin: 3px;
+    border-radius: 10px;
+    border:2px solid rgb(21, 21, 21, 0.6);
+}
+.sp:hover{
+    color:rgb(111, 176, 209);
 }

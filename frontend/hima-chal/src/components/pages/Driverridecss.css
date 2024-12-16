@@ -1,18 +1,38 @@
-.cont {
-    background-color: rgba(39, 39, 39, 0.9);
-}
+
+
 .la1 {
-    color: rgb(0, 0, 0);
+
     font-family: sans-serif;
     font-weight: 3vh;
     font-weight: bolder;
+    color:whitesmoke;
 }
-.la2{
-    color:rgb(22, 20, 20);
+
+.la2 {
     font-family: sans-serif;
     font-weight: 2vh;
     font-weight: bold;
 }
-.update{
-    background-color: rgb(139,139,139,0.3);
+
+.update {
+    background-color: rgb(139, 139, 139, 0.3);
+}
+
+.cv1 {
+    margin-top:-7%;
+    background: #000000;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #434343, #000000);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #434343, #000000);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.inp{
+    background-color: rgba(83, 80, 80, 0.5);
+    border:2px solid rgba(52, 51, 51, 0.5);
+    color:rgb(187, 186, 186);
+    font-weight: bold;
+    border-radius: 15px;
+    width:100%;
+    padding:2%;
 }

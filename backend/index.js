@@ -11,6 +11,7 @@ app.use(express.json());
 
 //routes
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/bus", require("./routes/bus"));
 
 app.listen(port, () => {
   console.log(`Connected to http://localhost:${port} `);

@@ -7,12 +7,12 @@ export default function Driverrideui() {
 
     return (
         <>
-            <div className="container-fluid cont text-dark text-dark">
-                <br></br><br></br>
+            <div className="container-fluid cont text-dark text-dark cv1">
+                <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-6">
-                        <MapContainer/>    
+                            <MapContainer />
                         </div>
                         <div className="col-sm-1">
 
@@ -20,33 +20,31 @@ export default function Driverrideui() {
                         <div className="col-sm-5">
                             <div className="row">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1 " className="la1 text-dark">Seats currently occupied</label>
+                                    <label for="exampleInputEmail1 " className="la1" style={{ color: 'white' }}>Seats currently occupied</label>
                                     <div className="row">
                                         <div className="col-sm-11">
-                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={count} />
+                                            <input type="text" className="form-control inp" id="exampleInputEmail1" aria-describedby="emailHelp" value={count} />
                                         </div>
                                         <div className="col-sm-1">
-                                            <button onClick={() => setCount(count + 1)}>+</button>
+                                            <button onClick={() => setCount(count + 1)} className="btn btn-outline-success" style={{fontWeight:'bolder'}}>+</button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1" className="la1 text-dark">Upcoming Passengers</label>
-                                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                    <label for="exampleInputEmail1" className="la1" style={{ color: 'white' }}>Upcoming Passengers</label>
+                                    <input type="number" className="form-control inp" id="exampleInputEmail1" aria-describedby="emailHelp" />
                                 </div>
                             </div><br></br>
                             <div className="row">
-                                <span className="la1">
-                                    Ride Update
+                                <span className="la1" style={{ color: 'white' }}>
+                                    Broadcast your status to users.
                                 </span>
                                 <br></br>
                                 <br></br>
-                                <div className="row update">
-                                    <h5>Broadcast your status to users.</h5>
-                                    <textarea placeholder='Default:Normal'>
+                                <textarea placeholder='Default:Broadcast here....' className="inp">
 
-                                    </textarea>
-                                </div>
+                                </textarea>
+                                <br></br>
                             </div>
                             <br></br><br></br>
                             <div className="row">

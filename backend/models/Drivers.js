@@ -6,10 +6,6 @@ const DriverSchema = new Schema({
     type: String,
     required: true,
   },
-  username: {
-    type: String,
-    required: true,
-  },
   email: {
     type: String,
     required: true,
@@ -32,10 +28,6 @@ const DriverSchema = new Schema({
     required: true,
   },
   vehicalmodel: {
-    type: String,
-    required: true,
-  },
-  vehicalinsurancecompany: {
     type: String,
     required: true,
   },
